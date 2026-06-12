@@ -161,23 +161,33 @@ const ProviderDashboard = () => {
                       <span className="text-lg font-black text-green-600">${order.budget || order.service?.price}</span>
                       
                       {/* Action state management control buttons */}
-                      <div className="flex space-x-2">
-                        {order.status === 'pending' && (
-                          <>
-                            <button onClick={() => handleUpdateStatus(order._id, 'accepted')} className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold transition">
-                              Accept
-                            </button>
-                            <button onClick={() => handleUpdateStatus(order._id, 'rejected')} className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg text-xs font-semibold transition">
-                              Reject
-                            </button>
-                          </>
-                        )}
-                        {order.status === 'accepted' && (
-                          <button onClick={() => handleUpdateStatus(order._id, 'completed')} className="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded-lg text-xs font-semibold transition">
-                            Mark Complete
-                          </button>
-                        )}
-                      </div>
+                     <div className="flex space-x-2">
+  {/* Normalize status matching to lowercase just in case */}
+  {(order.status?.toLowerCase() === 'pending' || !order.status) && (
+    <>
+      <button 
+        onClick={() => handleUpdateStatus(order._id, 'accepted')} 
+        className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold transition shadow-sm"
+      >
+        Accept
+      </button>
+      <button 
+        onClick={() => handleUpdateStatus(order._id, 'rejected')} 
+        className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg text-xs font-semibold transition"
+      >
+        Reject
+      </button>
+    </>
+  )}
+  {order.status?.toLowerCase() === 'accepted' && (
+    <button 
+      onClick={() => handleUpdateStatus(order._id, 'completed')} 
+      className="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded-lg text-xs font-semibold transition shadow-sm"
+    >
+      Mark Complete
+    </button>
+  )}
+</div>
                     </div>
                   </div>
                 ))}
