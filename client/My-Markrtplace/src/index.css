@@ -1,1 +1,128 @@
 @import "tailwindcss";
+
+/* Dark mode styles */
+.dark {
+  --bg-primary: #020617;
+  --bg-secondary: #0f172a;
+  --bg-tertiary: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+  --border-color: #1e293b;
+}
+
+.dark .bg-slate-50 {
+  background-color: var(--bg-primary) !important;
+}
+
+.dark .bg-slate-100 {
+  background-color: var(--bg-secondary) !important;
+}
+
+.dark .bg-slate-900 {
+  background-color: var(--bg-primary) !important;
+}
+
+.dark .bg-white {
+  background-color: var(--bg-secondary) !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: var(--bg-primary) !important;
+}
+
+.dark .bg-gray-100 {
+  background-color: var(--bg-tertiary) !important;
+}
+
+.dark .text-slate-900 {
+  color: var(--text-primary) !important;
+}
+
+.dark .text-slate-800 {
+  color: var(--text-primary) !important;
+}
+
+.dark .text-slate-700 {
+  color: var(--text-secondary) !important;
+}
+
+.dark .text-slate-600 {
+  color: var(--text-muted) !important;
+}
+
+.dark .text-slate-500 {
+  color: var(--text-muted) !important;
+}
+
+.dark .text-slate-400 {
+  color: var(--text-muted) !important;
+}
+
+.dark .text-slate-300 {
+  color: var(--text-muted) !important;
+}
+
+.dark .text-gray-900 {
+  color: var(--text-primary) !important;
+}
+
+.dark .text-gray-800 {
+  color: var(--text-primary) !important;
+}
+
+.dark .text-gray-700 {
+  color: var(--text-secondary) !important;
+}
+
+.dark .text-gray-600 {
+  color: var(--text-muted) !important;
+}
+
+.dark .text-gray-500 {
+  color: var(--text-muted) !important;
+}
+
+.dark .text-gray-400 {
+  color: var(--text-muted) !important;
+}
+
+.dark .border-gray-100 {
+  border-color: var(--border-color) !important;
+}
+
+.dark .border-gray-200 {
+  border-color: var(--border-color) !important;
+}
+
+.dark .border-gray-300 {
+  border-color: var(--border-color) !important;
+}
+
+.dark .border-slate-100 {
+  border-color: var(--border-color) !important;
+}
+
+.dark .border-slate-200 {
+  border-color: var(--border-color) !important;
+}
+
+.dark .border-slate-300 {
+  border-color: var(--border-color) !important;
+}
+
+.dark .border-slate-600 {
+  border-color: var(--border-color) !important;
+}
+
+.dark .border-slate-800 {
+  border-color: var(--border-color) !important;
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}

@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -12,42 +13,44 @@ import ServiceDetails from './pages/ServiceDetails';
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <div className="min-h-screen bg-gray-50 text-gray-900 flex flex-col relative">
-          <Navbar />
-          <main className="grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services/:id" element={<ServiceDetails />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-              
-              <Route 
-                path="/provider-dashboard" 
-                element={
-                  <ProtectedRoute allowedRoles={['provider']}>
-                    <ProviderDashboard />
-                  </ProtectedRoute>
-                } 
-              />
+    <ThemeProvider>
+      <AuthProvider>
+        <Router>
+          <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col relative transition-all duration-300 ease-in-out">
+            <Navbar />
+            <main className="grow">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/services/:id" element={<ServiceDetails />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                
+                <Route 
+                  path="/provider-dashboard" 
+                  element={
+                    <ProtectedRoute allowedRoles={['provider']}>
+                      <ProviderDashboard />
+                    </ProtectedRoute>
+                  } 
+                />
 
-              <Route 
-                path="/customer-dashboard" 
-                element={
-                  <ProtectedRoute allowedRoles={['customer']}>
-                    <CustomerDashboard />
-                  </ProtectedRoute>
-                } 
-              />
-            </Routes>
-          </main>
-          
-          {/* Render the AI Assistant widget floating over all views */}
-          <AIAssistant />
-        </div>
-      </Router>
-    </AuthProvider>
+                <Route 
+                  path="/customer-dashboard" 
+                  element={
+                    <ProtectedRoute allowedRoles={['customer']}>
+                      <CustomerDashboard />
+                    </ProtectedRoute>
+                  } 
+                />
+              </Routes>
+            </main>
+            
+            {/* Render the AI Assistant widget floating over all views */}
+            <AIAssistant />
+          </div>
+        </Router>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

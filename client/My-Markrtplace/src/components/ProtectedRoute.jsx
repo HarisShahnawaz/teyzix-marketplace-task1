@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, loading } = useContext(AuthContext);
 
-  // ⏳ Wait until the application finishes checking localStorage for an active session
+  //  Wait until the application finishes checking localStorage for an active session
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
